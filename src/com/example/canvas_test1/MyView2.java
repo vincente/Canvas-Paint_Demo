@@ -28,14 +28,14 @@ public class MyView2 extends View {
 		paint.setStyle(Paint.Style.STROKE);
 		paint.setStrokeWidth(4);
 
-		//´´½¨²¢³õÊ¼»¯Path
+		//åˆ›å»ºå¹¶åˆå§‹åŒ–Path
 		path = new Path();
 		path.moveTo(0, 0);
 		for (int i = 1; i <= 15; i++) {
-			//Éú³É15¸öµã£¬Y×ø±êËæ»úÉú³É£¬²¢½«ËüÃÇÁ¬³ÉÒ»ÌõPath
+			//ç”Ÿæˆ15ä¸ªç‚¹ï¼ŒYåæ ‡éšæœºç”Ÿæˆï¼Œå¹¶å°†å®ƒä»¬è¿æˆä¸€æ¡Path
 			path.lineTo(i * 20, (float) Math.random() * 60);
 		}
-		//³õÊ¼»¯7¸öÑÕÉ«
+		//åˆå§‹åŒ–7ä¸ªé¢œè‰²
 		colors = new int[] { Color.BLACK, Color.BLUE, Color.CYAN, Color.GREEN,
 				Color.MAGENTA, Color.RED, Color.YELLOW };
 	}
@@ -45,36 +45,36 @@ public class MyView2 extends View {
 		// TODO Auto-generated method stub
 		super.onDraw(canvas);
 		canvas.drawColor(Color.WHITE);
-		
-		//---------------------³õÊ¼»¯7ÖÖÂ·¾¶Ğ§¹û------------------
-		//²»ÊÊÓÃÂ·¾¶Ğ§¹û
+
+		//---------------------åˆå§‹åŒ–7ç§è·¯å¾„æ•ˆæœ------------------
+		//ä¸é€‚ç”¨è·¯å¾„æ•ˆæœ
 		effects[0] = null;
-		//Ê¹ÓÃCornerPathEffectĞ§¹û
+		//ä½¿ç”¨CornerPathEffectæ•ˆæœ
 		effects[1] = new CornerPathEffect(10);
-		//³õÊ¼»¯DiscretePathEffect
+		//åˆå§‹åŒ–DiscretePathEffect
 		effects[2] = new DiscretePathEffect(3.0f, 5.0f);
-		//³õÊ¼»¯DashPathEffect
+		//åˆå§‹åŒ–DashPathEffect
 		effects[3] = new DashPathEffect(new float[] { 20, 10, 5, 10 }, phase);
 
-		//³õÊ¼»¯PathDashPathEffect
+		//åˆå§‹åŒ–PathDashPathEffect
 		Path p = new Path();
 		p.addRect(0, 0, 8, 8, Path.Direction.CCW);
 		effects[4] = new PathDashPathEffect(p, 12, phase,
 				PathDashPathEffect.Style.ROTATE);
-		//³õÊ¼»¯PathDashPathEffect
+		//åˆå§‹åŒ–PathDashPathEffect
 		effects[5] = new ComposePathEffect(effects[2], effects[4]);
 		effects[6] = new SumPathEffect(effects[4], effects[3]);
-		
-		//½«»­²¼ÒÆÖÁ8.8´¦¿ªÊ¼»æ»­
+
+		//å°†ç”»å¸ƒç§»è‡³8.8å¤„å¼€å§‹ç»˜ç”»
 		canvas.translate(8, 8);
 
-		//ÒÀ´ÎÊ¹ÓÃ7ÖÖ²»Í¬µÄÂ·¾¶Ğ§¹û£¬7ÖÖ²»Í¬µÄÑÕÉ«À´»æÖÆÂ·¾¶
+		//ä¾æ¬¡ä½¿ç”¨7ç§ä¸åŒçš„è·¯å¾„æ•ˆæœï¼Œ7ç§ä¸åŒçš„é¢œè‰²æ¥ç»˜åˆ¶è·¯å¾„
 		for (int i = 0; i < effects.length; i++) {
 			paint.setPathEffect(effects[i]);
 			paint.setColor(colors[i]);
 			canvas.drawPath(path, paint);
 			canvas.translate(0, 60);
-			//¸Ä±äphaseÖµĞÎ³É¶¯»­Ğ§¹û
+			//æ”¹å˜phaseå€¼å½¢æˆåŠ¨ç”»æ•ˆæœ
 			phase += 1;
 			invalidate();
 		}

@@ -15,42 +15,42 @@ public class MyView extends View {
 		super(context, attrs);
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	@Override
 	protected void onDraw(Canvas canvas) {
 		// TODO Auto-generated method stub
 		super.onDraw(canvas);
-		//»­²¼ÉèÖÃ³É°×É«µÄ
+		//ç”»å¸ƒè®¾ç½®æˆç™½è‰²çš„
 		canvas.drawColor(Color.WHITE);
-		//´´½¨»­±Ê
+		//åˆ›å»ºç”»ç¬”
 		Paint paint = new Paint();
-		//È¥µô¾â³İ
+		//å»æ‰é”¯é½¿
 		paint.setAntiAlias(true);
 		paint.setColor(Color.RED);
 		paint.setStyle(Paint.Style.FILL);
 		paint.setStrokeWidth(2);
 		paint.setShadowLayer(45, 10, 10, Color.BLACK);
-		
+
 		canvas.drawCircle(40, 40, 30, paint);
-		
+
 		canvas.drawRect(10, 80, 70, 140, paint);
-		
+
 		canvas.drawRect(10, 150, 100, 210, paint);
-		
+
 		RectF rectF1 = new RectF(10, 220, 100, 280);
 		canvas.drawRoundRect(rectF1, 10, 10, paint);
-		
+
 		RectF rectF2 = new RectF(10, 290, 100, 350);
 		canvas.drawOval(rectF2, paint);
-		
-		
+
+
 		Path path1 = new Path();
 		path1.moveTo(10, 360);
 		path1.lineTo(100, 360);
 		path1.lineTo(55, 420);
 		path1.close();
 		canvas.drawPath(path1, paint);
-		
+
 	}
 
 }
